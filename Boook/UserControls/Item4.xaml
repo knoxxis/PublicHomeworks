@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="Boook.UserControls.Item4"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Boook.UserControls"
+             mc:Ignorable="d" 
+             Height="45" Width="360" d:Background="Red" Name="customerItem">
+    <Button x:Name="btnSelectCust" Height="30" Click="btnSelectCust_Click">
+        <Button.Style>
+            <Style TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" BorderThickness="0">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Button.Style>
+
+        <Grid Height="30">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Setter Property="Background" Value="#E5E9EA"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FFCACACA"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="180"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" d:Text="11" Text="{Binding Path=Customer_Id,ElementName=customerItem}" FontWeight="SemiBold" FontSize="11" VerticalAlignment="Center" TextAlignment="Center"/>
+
+            <TextBlock Grid.Column="2" d:Text="Alice Young" Text="{Binding Path=Customer_Name,ElementName=customerItem}" FontWeight="SemiBold" FontSize="9" VerticalAlignment="Top" Margin="0,3,0,0"/>
+            <TextBlock Grid.Column="2" d:Text="alice@example.com" Text="{Binding Path=Email,ElementName=customerItem}" Foreground="#909090" FontSize="7" VerticalAlignment="Top" Margin="0,15,0,0"/>
+
+            <TextBlock Grid.Column="4" d:Text="123 Main St, Anytown, Thailand" Text="{Binding Path=Address,ElementName=customerItem}" FontWeight="SemiBold" FontSize="9" VerticalAlignment="Center"/>
+
+
+        </Grid>
+    </Button>
+</UserControl>
